@@ -1,0 +1,65 @@
+------
+3V Rule 
+
+
+Velocity -- 1GB / 1PT
+Volume -- 100GB / n TB
+Variety --- 
+
+
+ELKB
+Graphna
+Qradar
+PowerBI
+Tablue 
+
+
+SPL - Splunk Search Processing Language 
+JSON --- Java Script Obeject Notation 
+
+
+
+
+>>>
+ Non-structured 
+ Structured 
+ Semi-structured
+ 
+ 
+ CSV - comma seperated values 
+ 
+ these below lines are showing the employee information
+ ayan,26,kol
+ captain da,28,purulia
+ Nithesh da,,delhi
+ 
+ 
+1) Splunk is a big data tool
+2) Splunk is a log management tool
+3) Splunk is a google like search engine 
+4) Splunk is a data analyzer 
+
+ACL  --- Access Control List 
+
+account ---
+
+Firewall -----
+
+
+Web Application ----
+
+
+SLA --- Service Level Aggrement 
+
+
+Disk Free Space ---- 50 GB --- 
+Threshold -- 20 GB 
+
+
+
+
+Cpu ----- 70 %  
+90 %
+
+
+
