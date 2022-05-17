@@ -1,0 +1,155 @@
+Splunk Architecture 
+
+1) Standalone 
+2) Disbuted Non Cluster 
+3) Disbuted Cluster 
+
+
+Componets Of Splunk ---
+1) Universal Forwarder ( UF ) - Splunk Universal Forwarder Package --- CLI 
+
+Splunk Enterprise Package --- CLI + GUI
+
+CLI - Command Line Interface
+GUI - Graphical user Interface
+
+
+2) Heavy Forwarder ( HF )
+a) Parsing 
+
+this is ayan 
+this is salim 
+this is raja 
+
+
+this is ayan 
+
+this is salim
+ 
+this is raja 
+
+
+------
+
+this is ayan, he lives in kolkata,
+this is salim, he lives in delhi,
+this is raja, he lives in mumbai,
+
+
+
+this is ayan
+
+he lives in kolkata
+
+this is salim
+
+he lives in delhi
+
+this is raja
+
+he lives in mumbai
+
+
+-------- 
+Masking ---
+
+this is ayan and his acc no is 20092750
+this is salim and his acc no is 2058259275
+this is raja and his acc no is 0209275520
+
+
+
+this is ayan and his acc no is xxxx2750
+
+this is salim and his acc no is xxxx9275
+
+this is raja and his acc no is xxxx5520
+
+
+b) filtering 
+this is ayan and he logged in from 198.23.90.24
+this is salim and he logged in from 192.1687.90.23
+this is raja and he logged out from 10.0.0.89
+
+
+
+this is ayan and he logged in from 198.23.90.24
+
+this is salim and he logged in from 192.1687.90.23
+
+
+Routing ----
+
+log_in
+this is ayan and he logged in from 198.23.90.24
+this is salim and he logged in from 192.1687.90.23
+
+
+
+this is raja and he logged out from 10.0.0.89 --- log_out
+
+
+3) Indexer ( IDX )
+
+--- indices
+--- index
+
+---------- Metadata ---- Data about the data -----
+
+----- host --- Ip address or host name of the application server ( 192.168.0.109 ,SkeletoN.tcs.com )
+----- source --- C:\Users\Ayan\Documents\zoom\2022-05-17 23.21.30 ayan maity's personal meeting room\a.txt 
+----- sourcetype -----
+
+C:\Users\Ayan\Documents\zoom\2022-05-17 23.21.30 ayan maity's personal meeting room\a.txt  --- txtlog 
+C:\Users\Ayan\Documents\zoom\2022-05-17 23.21.30 ayan maity's personal meeting room\b.txt 
+
+C:\Users\Ayan\Documents\zoom\2022-05-17 23.21.30 ayan maity's personal meeting room\a.csv --- errorlog 
+C:\Users\Ayan\Documents\zoom\2022-05-17 23.21.30 ayan maity's personal meeting room\b.csv 
+
+
+C:\Users\Ayan\Downloads\
+
+
+Data Onboarding ---
+
+4) Search Head ( SH )
+5) Deployment Server ( DS )
+
+6) License Master ( LM )
+a) License Pooling 
+
+5 GB >>>>
+  Pool A -- 3GB --- Indexer
+  Pool B - 2GB -- DS , SH 
+b) License Stacking
+
+5GB >>>
+150GB 
+
+------------- 155GB 
+
+-------------------
+License Violation ----- 
+
+5 times in a rolling period 30 days 
+
+18 --- 1
+20 --- 2
+25 -- 3
+5 --- 4
+8 -- 5
+>
+9 --- 6
+
+
+https://splunkonbigdata.com/splunk-licensing-enforcement-vs-no-enforcement/
+
+< 6.5 v ---- Enforcement License ------ Indexing Continues --- Search Block 
+>=6.5 v --- Non-Enforcement License ---- Indexing Continues --- Search Continues ---- Splunk can take legal action against you 
+
+-------
+License Expire ----- Indexing Continues --- Search Block 
+
+License Master Goes Down --- https://splunkonbigdata.com/what-happens-when-license-master-goes-down/
+
+72 hours --- Indexing Continues --- Search Block 
