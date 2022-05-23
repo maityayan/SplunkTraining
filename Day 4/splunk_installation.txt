@@ -1,0 +1,28 @@
+--------------- Splunk Installation ---------------
+# sudo su - 
+# cd /opt
+# cat /etc/*release*
+# apt-get install wget | yum install wget 
+# wget -O splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz "https://download.splunk.com/products/splunk/releases/8.2.6/linux/splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz"
+# tar -xvzf  splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz
+# ls 
+
+root@sh-training:/opt# ls -l
+total 539604
+drwxr-xr-x 9 10777 10777      4096 Mar 24 01:36 splunk
+-rw-r--r-- 1 root  root  552543435 Apr  5 01:30 splunk-8.2.6-a6fe1ee8894b-Linux-x86_64.tgz
+
+
+# cd splunk 
+# cd bin
+# pwd 
+/opt/splunk/bin
+# ./splunk start --accept-license
+put admin account name : admin
+put admin account password : 12345678
+confirm pass : 12345678
+
+# ./splunk status|start|stop|restart
+#  ps -ef | grep -i splunk
+# ./splunk -version
+# ./splunk enable boot-start 
