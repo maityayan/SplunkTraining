@@ -1,0 +1,46 @@
+pipeline concept 
+------------------------------------------------------------- search -----------------------------------------
+* 
+
+failure 
+ 
+failed 
+
+fails 
+
+fail
+
+
+success 
+
+
+| search NOT success  
+
+| search fail 
+ 
+index=_internal sourcetype=splunkd_ui_access | search  get OR  post NOT 200 
+
+index=_internal sourcetype=splunkd_ui_access | search  get   post   || index=_internal sourcetype=splunkd_ui_access | search  get AND  post
+ 
+ NOT 
+ AND 
+ OR 
+ 
+------------------------------------------------------------------table -------------------------------------------------
+index=_internal sourcetype=splunkd_ui_access | search get |  table bytes,clientip,count
+
+
+index=_internal sourcetype=splunkd_ui_access | search get |  table bytes,clientip,count | search bytes=5*6
+
+index=_internal sourcetype=splunkd_ui_access |  table method,status | search status<300 OR status>399
+
+index=_internal sourcetype=splunkd_ui_access |  table method,status | search status>=303
+
+
+-------------------------------------------------------------- dedup ---------------------------------
+
+| dedup <field_name> 
+
+index=_internal sourcetype=splunkd_ui_access |  table method  | dedup method
+
+index=_internal sourcetype=splunkd_ui_access |  table method,status | dedup method,status
