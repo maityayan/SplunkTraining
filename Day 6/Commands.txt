@@ -1,0 +1,82 @@
+Delete Splunk Completely 
+
+
+cd /opt/splunk/bin 
+./splunk stop 
+cd /opt 
+rm -rf splunk* 
+
+
+------------------------------------ where -----------------------------------
+index=_internal sourcetype=splunkd_ui_access 
+| table method,status,bytes,date_minute 
+| dedup method,status,bytes,date_minute 
+| where status > bytes AND bytes < date_minute
+
+-------------------------------------- fields ------------------------------------
+
+index=_internal sourcetype=splunkd_ui_access 
+| table bytes,file,clientip 
+| dedup bytes,file,clientip 
+| search file=c* 
+| fields - file
+
+------------------------------- sort ----------------------------------
+index=_internal sourcetype=splunkd_ui_access 
+| table method,status | dedup method,status | sort - status
+
+index=_internal sourcetype=splunkd_ui_access 
+| table method,status | dedup method,status | sort status
+
+
+index=_internal sourcetype=splunkd_ui_access NOT file=16* 
+| table file | dedup file | sort - file
+
+
+----------------------------------- head --------------------------------
+
+index=_internal sourcetype=splunkd_ui_access | table file | dedup file | head 
+
+index=_internal sourcetype=splunkd_ui_access | table file | dedup file | head 90
+
+
+------------------------------------- tail ---------
+
+
+index=_internal sourcetype=splunkd_ui_access | table file | dedup file | tail 
+
+index=_internal sourcetype=splunkd_ui_access | table file | dedup file | tail 15
+
+--------------------------------- reverse -------------------------
+
+index=_internal sourcetype=splunkd_ui_access | table file | dedup file |reverse
+
+
+
+
+
+--------------------------------server details ---------------
+http://34.125.236.183:8000/
+
+admin
+12345678
+
+
+Q: ----
+
+index=_internal sourcetype=splunkd_ui_access | table file | dedup file 
+
+
+I want to see 3rd to 6th row 
+run the query between 24th may to 5 june 
+
+
+file
+-----------
+splunkd
+timeline
+timeparser
+proxima-bold-webfont.woff
+
+
+
